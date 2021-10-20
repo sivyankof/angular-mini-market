@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { take } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 import { Product } from 'src/app/shared/interface/product.interface';
 import { ProductsService } from 'src/app/shared/service/products.service';
 
@@ -12,7 +14,7 @@ import { ProductsService } from 'src/app/shared/service/products.service';
 export class HomeShellComponent implements OnInit {
     public products: Product[] = [];
 
-    constructor(public productsService: ProductsService) {}
+    constructor(public productsService: ProductsService, private router: Router) {}
 
     ngOnInit(): void {
         this.productsService
@@ -20,4 +22,6 @@ export class HomeShellComponent implements OnInit {
             .pipe(take(1))
             .subscribe((data: Product[]) => ((this.products = data), console.log(this.products)));
     }
+
+    
 }

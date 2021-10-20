@@ -14,4 +14,8 @@ export class ProductsService {
     getProducts(): Observable<Product[]> {
         return of(PRODUCTS).pipe(delay(1000));
     }
+
+    getOneProduct(index: string): Observable<Product> {
+        return of(PRODUCTS.find((item) => item.id == index)).pipe(delay(1000));
+    }
 }

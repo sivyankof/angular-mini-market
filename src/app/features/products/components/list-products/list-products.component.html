@@ -1,0 +1,28 @@
+<mat-card *ngFor="let productItem of products" class="card-item" tabindex="1">
+    <!-- COMPONENT CARD PRODUCT -->
+    <app-card-product [productItem]="productItem"> </app-card-product>
+
+    <div class="actions">
+        <mat-divider [inset]="true"></mat-divider>
+        <mat-card-actions class="count-products">
+            <button mat-mini-fab color="accent" (click)="count = count == 0 ? 0 : count - 1">
+                <mat-icon>exposure_neg_1</mat-icon>
+            </button>
+
+            <span>{{ count }} product(s)</span>
+
+            <button mat-mini-fab color="accent" (click)="count = count + 1">
+                <mat-icon>plus_one</mat-icon>
+            </button>
+
+            <mat-card-subtitle>
+                <p>Total price: {{ count * productItem.price | currency }}</p>
+            </mat-card-subtitle>
+        </mat-card-actions>
+
+        <mat-card-actions align="center">
+            <button mat-raised-button color="accent">Add to cart</button>
+            <button mat-raised-button color="accent" (click)="showProduct(productItem)">Showing a main product</button>
+        </mat-card-actions>
+    </div>
+</mat-card>
