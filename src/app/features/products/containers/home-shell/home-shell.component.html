@@ -1,0 +1,7 @@
+<div class="list-products">
+    <div *ngIf="!products.length" class="spinner-load">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <app-list-products [products]="products" [productListCount]="productListCount"></app-list-products>
+</div>

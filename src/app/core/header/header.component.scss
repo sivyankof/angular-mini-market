@@ -1,0 +1,20 @@
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 400px;
+
+    a {
+        pointer-events: none;
+    }
+
+    .active {
+        color: orangered;
+        font-weight: 500;
+    }
+}
+
+mat-divider {
+    margin-bottom: 30px;
+}

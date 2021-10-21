@@ -1,0 +1,11 @@
+.list-products {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .spinner-load {
+        padding-top: 10rem;
+        margin: 0 auto;
+    }
+}
