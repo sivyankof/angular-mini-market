@@ -1,0 +1,72 @@
+<div
+    *ngIf="!product; else card"
+    class="spinner-load"
+>
+    <mat-spinner></mat-spinner>
+</div>
+
+<ng-template #card>
+    <button
+        mat-fab
+        color="accent"
+        (click)="goPrevProduct()"
+    >
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <mat-card class="card-item">
+        <app-card-product
+            [productItem]="product"
+        ></app-card-product>
+    </mat-card>
+
+    <table
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+    >
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>
+                Name
+            </th>
+            <td
+                mat-cell
+                *matCellDef="let element"
+            >
+                {{ element.name }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="text">
+            <th mat-header-cell *matHeaderCellDef>
+                Info
+            </th>
+            <td
+                mat-cell
+                *matCellDef="let element"
+            >
+                {{ element.text }}
+            </td>
+        </ng-container>
+
+        <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns"
+        ></tr>
+        <tr
+            mat-row
+            *matRowDef="
+                let row;
+                columns: displayedColumns
+            "
+        ></tr>
+    </table>
+
+    <button
+        mat-fab
+        color="accent"
+        (click)="goNextProduct()"
+    >
+        <mat-icon>arrow_forward</mat-icon>
+    </button>
+</ng-template>

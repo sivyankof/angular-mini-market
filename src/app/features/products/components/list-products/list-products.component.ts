@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Product } from 'src/app/shared/interface/product.interface';
@@ -15,6 +15,7 @@ interface List {
 export class ListProductsComponent implements OnInit {
     @Input() products: Product;
     @Input() productListCount: List;
+    @Output() increaseProductNumber = new EventEmitter<any>();
 
     public count: number = 0;
 
@@ -22,13 +23,11 @@ export class ListProductsComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    showProduct(productItem: Product) {
-        this.router.navigate(['review-product', productItem.id]);
+    showProduct(index: number) {
+        this.router.navigate(['review-product', index]);
     }
 
-    increaseProductNumber(i: number, value: string) {
-        this.productListCount[i] = this.productListCount[i] + Number(value) <= 0 ? 0 : this.productListCount[i] + Number(value);
-
-        console.log(this.productListCount);
+    setCountProduct(i: number, value: string) {
+        this.increaseProductNumber.emit({ i, value });
     }
 }

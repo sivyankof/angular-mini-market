@@ -16,6 +16,22 @@ export class ProductsService {
     }
 
     getOneProduct(index: string): Observable<Product> {
-        return of(PRODUCTS.find((item) => item.id == index)).pipe(delay(1000));
+        return of(PRODUCTS[index]).pipe(delay(100));
+    }
+
+    prevProduct(i): Observable<any> {
+        return of(
+            PRODUCTS.filter((item, i) => {
+                if (PRODUCTS[i - 1] !== null) {
+                    return PRODUCTS[i - 1];
+                } else {
+                    return PRODUCTS[i];
+                }
+            }),
+        );
+    }
+
+    getCountProducts() {
+        return PRODUCTS.length;
     }
 }

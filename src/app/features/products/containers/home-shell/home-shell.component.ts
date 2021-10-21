@@ -26,8 +26,8 @@ export class HomeShellComponent implements OnInit, OnDestroy {
             .subscribe((data: Product[]) => {
                 this.products = data;
 
-                data.forEach((el) => {
-                    this.productListCount[el.id] = 0;
+                data.forEach((el, i) => {
+                    this.productListCount[i] = 0;
                 });
             });
     }
@@ -35,5 +35,12 @@ export class HomeShellComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.destroy.next();
         this.destroy.complete();
+    }
+
+    increaseProductNumber(arg: { i: number; value: string }) {
+        const { i, value } = arg;
+
+        this.productListCount[i] =
+            this.productListCount[i] + Number(value) <= 0 ? 0 : this.productListCount[i] + Number(value);
     }
 }

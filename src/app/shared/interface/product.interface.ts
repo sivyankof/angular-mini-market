@@ -4,4 +4,5 @@ export interface Product {
     descriptions: string;
     img: string;
     price: number;
+    moreInfo?: object[];
 }
