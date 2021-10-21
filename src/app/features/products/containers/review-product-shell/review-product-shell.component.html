@@ -1,72 +1,49 @@
-<div
-    *ngIf="!product; else card"
-    class="spinner-load"
->
+<div *ngIf="!product; else card" class="spinner-load">
     <mat-spinner></mat-spinner>
 </div>
 
 <ng-template #card>
-    <button
-        mat-fab
-        color="accent"
-        (click)="goPrevProduct()"
-    >
-        <mat-icon>arrow_back</mat-icon>
-    </button>
+    <div class="main-info-product">
+        <button mat-fab color="accent" (click)="goPrevProduct()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
 
-    <mat-card class="card-item">
-        <app-card-product
-            [productItem]="product"
-        ></app-card-product>
+        <mat-card class="card-item">
+            <app-card-product [productItem]="product"
+                ><img *ngFor="let img of product.img" mat-card-image src="{{ img }}"
+            /></app-card-product>
+        </mat-card>
+
+        <div class="wrap">
+            <h3>Details product:</h3>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.name }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="text">
+                    <th mat-header-cell *matHeaderCellDef>Info</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.text }}
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+
+        <button mat-fab color="accent" (click)="goNextProduct()">
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+    </div>
+
+    <mat-card>
+        <mat-card-title>Comments:</mat-card-title>
+
+        <app-comment-list [commentList]="commentList"></app-comment-list>
     </mat-card>
-
-    <table
-        mat-table
-        [dataSource]="dataSource"
-        class="mat-elevation-z8"
-    >
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>
-                Name
-            </th>
-            <td
-                mat-cell
-                *matCellDef="let element"
-            >
-                {{ element.name }}
-            </td>
-        </ng-container>
-
-        <ng-container matColumnDef="text">
-            <th mat-header-cell *matHeaderCellDef>
-                Info
-            </th>
-            <td
-                mat-cell
-                *matCellDef="let element"
-            >
-                {{ element.text }}
-            </td>
-        </ng-container>
-
-        <tr
-            mat-header-row
-            *matHeaderRowDef="displayedColumns"
-        ></tr>
-        <tr
-            mat-row
-            *matRowDef="
-                let row;
-                columns: displayedColumns
-            "
-        ></tr>
-    </table>
-
-    <button
-        mat-fab
-        color="accent"
-        (click)="goNextProduct()"
-    >
-        <mat-icon>arrow_forward</mat-icon>
-    </button>
 </ng-template>

@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import { Product } from 'src/app/shared/interface/product.interface';
 import { ProductsService } from 'src/app/shared/service/products.service';
+import { Review } from 'src/app/shared/interface/review.interface';
 
 @Component({
     selector: 'app-review-product-shell',
@@ -16,6 +17,7 @@ export class ReviewProductShellComponent implements OnInit, OnDestroy {
     private destroy = new Subject();
     public product: Product;
     public dataSource: object[];
+    public commentList: Review[];
 
     displayedColumns: string[] = ['name', 'text'];
 
@@ -25,6 +27,7 @@ export class ReviewProductShellComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.initProduct();
+        this.initComment();
     }
 
     initProduct() {
@@ -36,17 +39,25 @@ export class ReviewProductShellComponent implements OnInit, OnDestroy {
                 this.dataSource = item.moreInfo;
             });
     }
+    initComment() {
+        this.productService
+            .getComment(this.id)
+            .pipe(takeUntil(this.destroy))
+            .subscribe((data) => (this.commentList = data));
+    }
 
     goPrevProduct() {
         this.setPrevCurrentID();
         this.router.navigate(['review-product', this.id]);
         this.initProduct();
+        this.initComment();
     }
 
     goNextProduct() {
         this.setNextCurrentId();
         this.router.navigate(['review-product', this.id]);
         this.initProduct();
+        this.initComment();
     }
 
     setPrevCurrentID() {

@@ -1,7 +1,10 @@
 <mat-card *ngFor="let productItem of products; let i = index" class="card-item" tabindex="1">
     <!-- COMPONENT CARD PRODUCT -->
-    <app-card-product [productItem]="productItem"> </app-card-product>
+    <app-card-product [productItem]="productItem"
+        ><img mat-card-image src="{{ productItem.img[0] }}" />
+    </app-card-product>
 
+    <!-- BUTTON ACTIONS -->
     <div class="actions">
         <mat-divider [inset]="true"></mat-divider>
         <mat-card-actions class="count-products">

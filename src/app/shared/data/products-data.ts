@@ -6,12 +6,13 @@ export const PRODUCTS: Product[] = [
         title: 'Soap',
         descriptions:
             'Duis et aliquip reprehenderit in in anim velit duis irure labore. Anim velit est qui ullamco aute consectetur incididunt ullamco commodo do. Do pariatur nulla deserunt eu Lorem consequat officia. Nostrud nisi esse cupidatat reprehenderit do pariatur veniam id consequat nulla pariatur enim incididunt. Anim ipsum reprehenderit esse mollit id Lorem consequat aliqua proident anim. Culpa esse fugiat deserunt laborum tempor. Minim dolore reprehenderit ad veniam aute amet pariatur commodo adipisicing do excepteur.',
-        img: '../../../assets/img/soap.jpg',
+        img: ['../../../assets/img/soap.jpg'],
         price: 1,
         moreInfo: [
             { name: 'Color', text: 'white, yellow, black' },
             { name: 'Types', text: 'liquid, strong, powdery' },
             { name: 'Production', text: 'USSR' },
+            { name: 'Number of products', text: '123' },
         ],
     },
     {
@@ -19,7 +20,11 @@ export const PRODUCTS: Product[] = [
         title: 'Vacuum cleaner',
         descriptions:
             'Duis et aliquip reprehenderit in in anim velit duis irure labore. Anim velit est qui ullamco aute consectetur incididunt ullamco commodo do. Do pariatur nulla deserunt eu Lorem consequat officia. Nostrud nisi esse cupidatat reprehenderit do pariatur veniam id consequat nulla pariatur enim incididunt. Anim ipsum reprehenderit esse mollit id Lorem consequat aliqua proident anim. Culpa esse fugiat deserunt laborum tempor. Minim dolore reprehenderit ad veniam aute amet pariatur commodo adipisicing do excepteur.',
-        img: '../../../assets/img/vacuun-cleaner.jpg',
+        img: [
+            '../../../assets/img/vacuun-cleaner.jpg',
+            '../../../assets/img/vacuun-cleaner-3.jpg',
+            '../../../assets/img/vacuun-cleaner-2.jpg',
+        ],
         price: 150,
         moreInfo: [
             { name: 'Color', text: 'red, black, blue, white' },
@@ -28,6 +33,7 @@ export const PRODUCTS: Product[] = [
             { name: 'Noise level', text: '80Db' },
             { name: 'Weight', text: '5.5 kg (cylinder only)' },
             { name: 'Operation Radius', text: '15 m' },
+            { name: 'Number of products', text: '20' },
         ],
     },
     {
@@ -35,11 +41,12 @@ export const PRODUCTS: Product[] = [
         title: 'hadron-collider',
         descriptions:
             'Duis et aliquip reprehenderit in in anim velit duis irure labore. Anim velit est qui ullamco aute consectetur incididunt ullamco commodo do. Do pariatur nulla deserunt eu Lorem consequat officia. Nostrud nisi esse cupidatat reprehenderit do pariatur veniam id consequat nulla pariatur enim incididunt. Anim ipsum reprehenderit esse mollit id Lorem consequat aliqua proident anim. Culpa esse fugiat deserunt laborum tempor. Minim dolore reprehenderit ad veniam aute amet pariatur commodo adipisicing do excepteur.',
-        img: '../../../assets/img/hadron-collider.jpg',
+        img: ['../../../assets/img/hadron-collider.jpg'],
         price: 23000000000,
         moreInfo: [
             { name: 'Long', text: '26,7 km' },
             { name: 'Deep tunnel', text: 'between 50 and 175 metres' },
+            { name: 'Number of products', text: '1' },
         ],
     },
     {
@@ -47,7 +54,7 @@ export const PRODUCTS: Product[] = [
         title: 'PS 5',
         descriptions:
             'Duis et aliquip reprehenderit in in anim velit duis irure labore. Anim velit est qui ullamco aute consectetur incididunt ullamco commodo do. Do pariatur nulla deserunt eu Lorem consequat officia. Nostrud nisi esse cupidatat reprehenderit do pariatur veniam id consequat nulla pariatur enim incididunt. Anim ipsum reprehenderit esse mollit id Lorem consequat aliqua proident anim. Culpa esse fugiat deserunt laborum tempor. Minim dolore reprehenderit ad veniam aute amet pariatur commodo adipisicing do excepteur.',
-        img: '../../../assets/img/ps5.jpg',
+        img: ['../../../assets/img/ps5.jpg'],
         price: 960,
         moreInfo: [
             {
@@ -70,6 +77,7 @@ export const PRODUCTS: Product[] = [
                 name: 'The total processing power of the console',
                 text: 'is 10.28 teraflops',
             },
+            { name: 'Number of products', text: '100' },
         ],
     },
     {
@@ -77,7 +85,7 @@ export const PRODUCTS: Product[] = [
         title: 'Macbook Apple M1 Max',
         descriptions:
             'Если вам нужен ноутбук Mac с максимальным уровнем производительности, выберите чип M1 Max. По сравнению с M1 Pro у него вдвое больше графических ядер и в два раза выше пропускная способность памяти. У него также более мощный медиапроцессор — он позволяет воспроизводить до 7 потоков видео 8K.⁸ При использовании чипа M1 Max на компьютер можно установить до 64 ГБ объединённой памяти — в такой конфигурации ваш MacBook Pro станет ещё быстрее и сможет с лёгкостью обрабатывать даже очень большие файлы.',
-        img: '../../../assets/img/mbp16.jpg',
+        img: ['../../../assets/img/mbp16.jpg'],
         price: 7500,
         moreInfo: [
             {
@@ -108,6 +116,7 @@ export const PRODUCTS: Product[] = [
                 name: 'Keyboard',
                 text: 'Backlit Magic Keyboard with Touch ID - US English',
             },
+            { name: 'Number of products', text: '2000' },
         ],
     },
 ];
