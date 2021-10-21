@@ -1,13 +1,7 @@
 <div class="list-products">
-    <div *ngIf="products.length === 0" class="spinner-load">
+    <div *ngIf="!products.length" class="spinner-load">
         <mat-spinner></mat-spinner>
     </div>
 
-    <!-- <app-product
-        *ngFor="let productItem of products"
-        [productItem]="productItem"
-        (showProduct)="showProduct($event)"
-    ></app-product> -->
-
-    <app-list-products [products]="products"></app-list-products>
+    <app-list-products [products]="products" [productListCount]="productListCount"></app-list-products>
 </div>
