@@ -9,9 +9,9 @@
         </button>
 
         <mat-card class="card-item">
-            <app-card-product [productItem]="product"
-                ><img *ngFor="let img of product.img" mat-card-image src="{{ img }}"
-            /></app-card-product>
+            <app-card-product [productItem]="product">
+                <app-list-img [productItem]="product.img"></app-list-img>
+            </app-card-product>
         </mat-card>
 
         <div class="wrap">

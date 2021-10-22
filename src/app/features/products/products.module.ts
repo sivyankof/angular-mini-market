@@ -8,6 +8,7 @@ import { ProcessOrderShellComponent } from './containers/process-order-shell/pro
 import { ReviewProductShellComponent } from './containers/review-product-shell/review-product-shell.component';
 import { CardProductComponent } from 'src/app/shared/components/card-product/card-product.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { ListImgComponent } from 'src/app/shared/components/list-img/list-img.component';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
         ProcessOrderShellComponent,
         ReviewProductShellComponent,
         CardProductComponent,
+        ListImgComponent,
         CommentListComponent,
     ],
     imports: [CommonModule, MaterialModule],

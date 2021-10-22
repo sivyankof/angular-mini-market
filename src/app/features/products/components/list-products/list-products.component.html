@@ -1,7 +1,7 @@
 <mat-card *ngFor="let productItem of products; let i = index" class="card-item" tabindex="1">
     <!-- COMPONENT CARD PRODUCT -->
-    <app-card-product [productItem]="productItem"
-        ><img mat-card-image src="{{ productItem.img[0] }}" />
+    <app-card-product [productItem]="productItem">
+        <img mat-card-image src="{{ productItem.img[0] }}" />
     </app-card-product>
 
     <!-- BUTTON ACTIONS -->
