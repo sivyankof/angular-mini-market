@@ -3,5 +3,9 @@
         <mat-spinner></mat-spinner>
     </div>
 
-    <app-list-products [products]="products" [productListCount]="productListCount"></app-list-products>
+    <app-list-products
+        [products]="products"
+        [productListCount]="productListCount"
+        (increaseProductNumber)="increaseProductNumber($event)"
+    ></app-list-products>
 </div>

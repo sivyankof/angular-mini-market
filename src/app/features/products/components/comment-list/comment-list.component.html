@@ -1,0 +1,7 @@
+<mat-card *ngFor="let item of commentList" class="card-comment">
+    <mat-card-title>{{ item.nameUser }}</mat-card-title>
+
+    <mat-card-content>
+        <p>{{ item.text }}</p>
+    </mat-card-content>
+</mat-card>

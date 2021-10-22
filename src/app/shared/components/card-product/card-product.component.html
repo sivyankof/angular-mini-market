@@ -2,7 +2,7 @@
 
 <mat-divider [inset]="true"></mat-divider>
 
-<img mat-card-image src="{{ productItem.img }}" />
+<ng-content></ng-content>
 
 <mat-card-content>
     <p>{{ productItem.descriptions }}</p>
@@ -11,5 +11,3 @@
 <mat-card-subtitle>
     <p>Price: {{ productItem.price | currency }}</p>
 </mat-card-subtitle>
-
-<ng-content></ng-content>
