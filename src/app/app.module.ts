@@ -8,10 +8,19 @@ import { ProductsModule } from './features/products/products.module';
 import { HeaderComponent } from './core/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/modules/material/material.module';
+import { ShoppingCartModule } from './features/shopping-cart/shopping-cart.module';
 
 @NgModule({
     declarations: [AppComponent, HeaderComponent],
-    imports: [BrowserModule, AppRoutingModule, RouterModule, ProductsModule, BrowserAnimationsModule, MaterialModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule,
+        ProductsModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        ShoppingCartModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })
