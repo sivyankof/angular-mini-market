@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { takeUntil } from 'rxjs/operators';
+import { take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { Router } from '@angular/router';
 
 import { Product } from 'src/app/shared/interface/product.interface';
 import { ProductsService } from 'src/app/shared/service/products.service';
+import { CartService } from 'src/app/shared/service/cart.service';
+import { Cart } from 'src/app/shared/interface/cart.interface';
 
 @Component({
     selector: 'app-home-shell',
@@ -14,33 +15,30 @@ import { ProductsService } from 'src/app/shared/service/products.service';
 })
 export class HomeShellComponent implements OnInit, OnDestroy {
     public products: Product[] = [];
-    public productListCount = {};
     private destroy = new Subject();
 
-    constructor(public productsService: ProductsService, private router: Router) {}
+    constructor(public productsService: ProductsService, private cartService: CartService) {}
 
     ngOnInit(): void {
+        this.initProductList();
+    }
+
+    initProductList() {
         this.productsService
             .getProducts()
             .pipe(takeUntil(this.destroy))
-            .subscribe((data: Product[]) => {
-                this.products = data;
+            .subscribe((data: Product[]) => (this.products = data));
+    }
 
-                data.forEach((el, i) => {
-                    this.productListCount[i] = 0;
-                });
-            });
+    addProduct(productToCart: Cart) {
+        this.cartService
+            .putNewProduct(productToCart)
+            .pipe(take(1))
+            .subscribe((res) => (res == true ? this.initProductList() : console.log('response not valid')));
     }
 
     ngOnDestroy() {
         this.destroy.next();
         this.destroy.complete();
-    }
-
-    increaseProductNumber(arg: { i: number; value: string }) {
-        const { i, value } = arg;
-
-        this.productListCount[i] =
-            this.productListCount[i] + Number(value) <= 0 ? 0 : this.productListCount[i] + Number(value);
     }
 }

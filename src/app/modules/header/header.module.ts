@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { MenuComponent } from './components/menu/menu.component';
 import { MaterialModule } from 'src/app/shared/modules/material/material.module';
-import { OverlayCartComponent } from './components/overlay-cart/overlay-cart.component';
+import { OverlayCartComponent } from './containers/overlay-cart/overlay-cart.component';
 
 @NgModule({
     declarations: [MenuComponent, OverlayCartComponent],

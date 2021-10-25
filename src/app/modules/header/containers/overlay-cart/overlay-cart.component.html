@@ -1,7 +1,7 @@
 <mat-icon
     aria-hidden="false"
     aria-label="Example home icon"
-    matBadge="{{ countProductsInCart }}"
+    matBadge="{{ this.checkedLengthCart }}"
     matBadgePosition="before below"
     matBadgeColor="warn"
     (click)="toggleShowCart()"
@@ -13,37 +13,50 @@
         <mat-card-title>Your products:</mat-card-title>
         <mat-divider></mat-divider>
 
-        <mat-card-subtitle *ngIf="countProductsInCart == 0; else listProduct">
+        <mat-card-subtitle *ngIf="this.checkedLengthCart == 0; else listProduct">
             Your shopping cart is empty <mat-icon>remove_shopping_cart</mat-icon>
         </mat-card-subtitle>
 
         <ng-template #listProduct>
             <mat-list>
                 <mat-card *ngFor="let item of myCart" class="item-product">
-                    <mat-card-title align="start">{{ item.title }}</mat-card-title>
+                    <mat-card-title align="start">{{ item.title }} </mat-card-title>
 
                     <mat-divider [inset]="true"></mat-divider>
 
                     <mat-card-content
                         >Price: {{ item.price | currency }} Total price:
-                        {{ item.totalPrice | currency }}</mat-card-content
+                        {{ item.price * item.count | currency }}</mat-card-content
                     >
 
                     <mat-card-actions class="actions-button">
-                        <button mat-mini-fab color="accent" (click)="setCountProduct(i, '-1')">
+                        <button mat-mini-fab color="accent" (click)="updateCountProduct(item, '-1')">
                             <mat-icon>exposure_neg_1</mat-icon>
                         </button>
                         Product(s): {{ item.count }}
-                        <button mat-mini-fab color="accent" (click)="setCountProduct(i, '+1')">
+                        <button mat-mini-fab color="accent" (click)="updateCountProduct(item, '+1')">
                             <mat-icon>plus_one</mat-icon>
                         </button>
 
-                        <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                        <button
+                            mat-mini-fab
+                            color="warn"
+                            aria-label="Example icon button with a delete icon"
+                            (click)="deleteProduct(item)"
+                        >
                             <mat-icon>delete</mat-icon>
                         </button>
                     </mat-card-actions>
                 </mat-card>
             </mat-list>
+
+            <mat-divider [inset]="true"></mat-divider>
+
+            <mat-card>
+                <mat-card-content> TOTAL PRICE: {{ this.totalPrice | currency }} </mat-card-content>
+            </mat-card>
+
+            <mat-divider [inset]="true"></mat-divider>
 
             <div class="process-order">
                 <button mat-raised-button color="primary">Next to process order</button>

@@ -13,7 +13,6 @@ import { CartService } from 'src/app/shared/service/cart.service';
 })
 export class OverlayCartComponent implements OnInit, OnDestroy {
     public myCart: Cart[];
-    public countProductsInCart: number = 0;
     public isShowCard: boolean = false;
     private destroy = new Subject();
 
@@ -29,12 +28,27 @@ export class OverlayCartComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this.destroy))
             .subscribe((data) => {
                 this.myCart = data;
-                this.countProductsInCart = data.length;
             });
+    }
+
+    get checkedLengthCart(): number {
+        return this.cartService.checkedLengthCart();
+    }
+
+    get totalPrice() {
+        return this.cartService.getTotalPrice();
     }
 
     toggleShowCart() {
         this.isShowCard = !this.isShowCard;
+    }
+
+    updateCountProduct(item: Cart, value: string) {
+        this.cartService.getUpdate(item, value);
+    }
+
+    deleteProduct(item: Cart) {
+        this.cartService.deleteProduct(item);
     }
 
     ngOnDestroy() {

@@ -3,9 +3,7 @@
         <mat-spinner></mat-spinner>
     </div>
 
-    <app-list-products
-        [products]="products"
-        [productListCount]="productListCount"
-        (increaseProductNumber)="increaseProductNumber($event)"
-    ></app-list-products>
+    <ng-container *ngFor="let product of products; let i = index">
+        <app-product-item class="item" [product]="product" (addProduct)="addProduct($event)"></app-product-item>
+    </ng-container>
 </div>

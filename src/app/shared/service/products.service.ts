@@ -17,8 +17,8 @@ export class ProductsService {
         return of(PRODUCTS).pipe(delay(1000));
     }
 
-    getOneProduct(index: string): Observable<Product> {
-        return of(PRODUCTS[index]).pipe(delay(100));
+    getOneProduct(id: string): Observable<Product> {
+        return of(PRODUCTS.find((el) => el.id === id)).pipe(delay(100));
     }
 
     prevProduct(i: number): Observable<any> {
