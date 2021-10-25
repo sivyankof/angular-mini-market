@@ -47,39 +47,17 @@ export class ReviewProductShellComponent implements OnInit, OnDestroy {
     }
 
     goPrevProduct() {
-        this.setPrevCurrentID();
+        this.id = this.productService.getPrevItem(this.id);
         this.router.navigate(['review-product', this.id]);
         this.initProduct();
         this.initComment();
     }
 
     goNextProduct() {
-        this.setNextCurrentId();
+        this.id = this.productService.getNextItem(this.id);
         this.router.navigate(['review-product', this.id]);
         this.initProduct();
         this.initComment();
-    }
-
-    setPrevCurrentID() {
-        const i = Number(this.id);
-        const maxLength = this.productService.getCountProducts();
-
-        if (i > 0) {
-            this.id = (i - 1).toString();
-        } else {
-            this.id = (maxLength - 1).toString();
-        }
-    }
-
-    setNextCurrentId() {
-        const i = Number(this.id);
-        const maxLength = this.productService.getCountProducts();
-
-        if (i + 1 < maxLength) {
-            this.id = (i + 1).toString();
-        } else {
-            this.id = '0';
-        }
     }
 
     ngOnDestroy() {

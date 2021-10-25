@@ -5,7 +5,6 @@ import { delay } from 'rxjs/operators';
 import { PRODUCTS } from '../data/products-data';
 import { Product } from '../interface/product.interface';
 import { REVIEWS } from '../data/reviews-data';
-import { Review } from '../interface/review.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -21,20 +20,18 @@ export class ProductsService {
         return of(PRODUCTS.find((el) => el.id === id)).pipe(delay(100));
     }
 
-    prevProduct(i: number): Observable<any> {
-        return of(
-            PRODUCTS.filter((item, i) => {
-                if (PRODUCTS[i - 1] !== null) {
-                    return PRODUCTS[i - 1];
-                } else {
-                    return PRODUCTS[i];
-                }
-            }),
-        );
-    }
-
     getCountProducts() {
         return PRODUCTS.length;
+    }
+
+    getPrevItem(id: string) {
+        let index = PRODUCTS.findIndex((el) => el.id === id);
+        return PRODUCTS[index - 1] === undefined ? PRODUCTS[PRODUCTS.length - 1].id : PRODUCTS[index - 1].id;
+    }
+
+    getNextItem(id: string) {
+        let index = PRODUCTS.findIndex((el) => el.id === id);
+        return PRODUCTS[index + 1] === undefined ? PRODUCTS[0].id : PRODUCTS[index + 1].id;
     }
 
     getComment(id: string) {
