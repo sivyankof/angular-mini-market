@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeShellComponent } from './features/products/containers/home-shell/home-shell.component';
-import { ProcessOrderShellComponent } from './features/products/containers/process-order-shell/process-order-shell.component';
-import { ReviewProductShellComponent } from './features/products/containers/review-product-shell/review-product-shell.component';
+import { HomeShellComponent } from './modules/products/containers/home-shell/home-shell.component';
+import { ProcessOrderShellComponent } from './modules/products/containers/process-order-shell/process-order-shell.component';
+import { ReviewProductShellComponent } from './modules/products/containers/review-product-shell/review-product-shell.component';
 
 const routes: Routes = [
     { path: '', component: HomeShellComponent },
