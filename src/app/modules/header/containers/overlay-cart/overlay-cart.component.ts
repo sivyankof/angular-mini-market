@@ -26,9 +26,7 @@ export class OverlayCartComponent implements OnInit, OnDestroy {
         this.cartService
             .getProductCart()
             .pipe(takeUntil(this.destroy))
-            .subscribe((data) => {
-                this.myCart = data;
-            });
+            .subscribe((data) => (this.myCart = data));
     }
 
     get checkedLengthCart(): number {

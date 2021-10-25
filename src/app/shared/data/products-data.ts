@@ -14,6 +14,7 @@ export const PRODUCTS: Product[] = [
             { name: 'Production', text: 'USSR' },
             { name: 'Number of products', text: '123' },
         ],
+        count: 0,
     },
     {
         id: '2',
@@ -35,6 +36,7 @@ export const PRODUCTS: Product[] = [
             { name: 'Operation Radius', text: '15 m' },
             { name: 'Number of products', text: '20' },
         ],
+        count: 0,
     },
     {
         id: '3',

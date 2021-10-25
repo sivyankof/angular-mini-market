@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -29,8 +30,14 @@ export class ProductItemComponent implements OnInit {
     }
 
     addToCart() {
+        let newProduct = {
+            product: this.product,
+            count: this.countProducts,
+        };
+
         if (!this.countProducts) return;
-        this.product.count = this.countProducts;
-        this.addProduct.emit(this.product);
+
+        this.addProduct.emit(newProduct);
+        this.countProducts = 0;
     }
 }

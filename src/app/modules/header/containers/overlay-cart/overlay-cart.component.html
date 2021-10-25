@@ -20,13 +20,15 @@
         <ng-template #listProduct>
             <mat-list>
                 <mat-card *ngFor="let item of myCart" class="item-product">
-                    <mat-card-title align="start">{{ item.title }} </mat-card-title>
+                    <mat-card-title align="start"
+                        ><img mat-card-avatar src="{{ item.product.img[0] }}" /> {{ item.product.title }}
+                    </mat-card-title>
 
                     <mat-divider [inset]="true"></mat-divider>
 
                     <mat-card-content
-                        >Price: {{ item.price | currency }} Total price:
-                        {{ item.price * item.count | currency }}</mat-card-content
+                        >Price: {{ item.product.price | currency }} Total price:
+                        {{ item.product.price * item.count | currency }}</mat-card-content
                     >
 
                     <mat-card-actions class="actions-button">
@@ -50,13 +52,9 @@
                 </mat-card>
             </mat-list>
 
-            <mat-divider [inset]="true"></mat-divider>
-
-            <mat-card>
+            <mat-card class="total-price">
                 <mat-card-content> TOTAL PRICE: {{ this.totalPrice | currency }} </mat-card-content>
             </mat-card>
-
-            <mat-divider [inset]="true"></mat-divider>
 
             <div class="process-order">
                 <button mat-raised-button color="primary">Next to process order</button>
