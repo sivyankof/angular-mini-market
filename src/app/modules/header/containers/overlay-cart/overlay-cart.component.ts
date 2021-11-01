@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -16,7 +17,7 @@ export class OverlayCartComponent implements OnInit, OnDestroy {
     public isShowCard: boolean = false;
     private destroy = new Subject();
 
-    constructor(public cartService: CartService) {}
+    constructor(public cartService: CartService, private router: Router) {}
 
     ngOnInit(): void {
         this.initCart();

@@ -9,6 +9,9 @@ import { CardProductComponent } from 'src/app/shared/components/card-product/car
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { ListImgComponent } from 'src/app/shared/components/list-img/list-img.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { CheckItemOrderComponent } from './components/check-item-order/check-item-order.component';
+import { CardActionsComponent } from 'src/app/shared/components/card-actions/card-actions.component';
+
 
 @NgModule({
     declarations: [
@@ -19,6 +22,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
         ListImgComponent,
         CommentListComponent,
         ProductItemComponent,
+        CheckItemOrderComponent,
+        CardActionsComponent
     ],
     imports: [CommonModule, MaterialModule],
     providers: [],

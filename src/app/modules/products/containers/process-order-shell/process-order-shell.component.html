@@ -1,1 +1,26 @@
-<p>process-order-shell works!</p>
+<mat-stepper linear #stepper class="form-ordered">
+    <mat-step>
+        <ng-template matStepLabel>Check your shop</ng-template>
+        <div *ngIf="!myCart.length; else show" class="empty-cart">
+            <mat-icon>remove_shopping_cart</mat-icon> <span>Cart empty</span>
+        </div>
+        <ng-template #show>
+            <app-check-item-order [myCart]="myCart"></app-check-item-order>
+            <mat-card>
+                <mat-card-title>Total Price: {{ totalPrice | currency }}</mat-card-title>
+            </mat-card>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </ng-template>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Delivery address</ng-template>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+    </mat-step>
+</mat-stepper>
