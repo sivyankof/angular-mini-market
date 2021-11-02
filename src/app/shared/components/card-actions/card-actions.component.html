@@ -1,0 +1,15 @@
+<mat-card-actions class="actions-button">
+    <button mat-mini-fab color="accent" (click)="updateCountProduct(item, '-1')">
+        <mat-icon>exposure_neg_1</mat-icon>
+    </button>
+
+    <span>Product(s): {{ item.count }}</span>
+
+    <button mat-mini-fab color="accent" (click)="updateCountProduct(item, '+1')">
+        <mat-icon>plus_one</mat-icon>
+    </button>
+
+    <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="deleteProduct(item)">
+        <mat-icon>delete</mat-icon>
+    </button>
+</mat-card-actions>

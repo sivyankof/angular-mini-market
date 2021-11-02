@@ -1,0 +1,19 @@
+<div class="nav-list">
+    <button
+        mat-button
+        color="primary"
+        routerLink=""
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+    >
+        Products
+    </button>
+
+    <button mat-button color="primary" routerLink="process-order" routerLinkActive="active">Process order</button>
+
+    <button mat-button color="primary">
+        <app-overlay-cart></app-overlay-cart>
+    </button>
+</div>
+
+<mat-divider></mat-divider>

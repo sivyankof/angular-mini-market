@@ -5,4 +5,5 @@ export interface Product {
     img: string[];
     price: number;
     moreInfo?: object[];
+    count?: number;
 }

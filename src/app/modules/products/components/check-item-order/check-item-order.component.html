@@ -1,0 +1,15 @@
+<mat-card *ngFor="let item of myCart" class="item-card">
+    <mat-card-content class="content">
+        <img mat-card-avatar src="{{ item.product.img[0] }}" />
+        <p class="title">{{ item.product.title }}</p>
+        <p>Price: {{ item.product.price | currency }}</p>
+
+        <mat-divider [vertical]="true"></mat-divider>
+
+        <app-card-actions [item]="item"></app-card-actions>
+
+        <mat-divider [vertical]="true"></mat-divider>
+
+        <p class="total-price">Total price : {{ item.product.price * item.count | currency }}</p>
+    </mat-card-content>
+</mat-card>

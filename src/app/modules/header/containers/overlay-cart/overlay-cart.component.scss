@@ -1,0 +1,33 @@
+.overlay-card {
+    position: absolute;
+    width: fit-content;
+    z-index: 2;
+    background-color: #f9f9f9;
+
+    mat-card-subtitle {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 10px 0;
+    }
+
+    .item-product {
+        margin-bottom: 20px;
+
+        mat-card-title {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .actions-button {
+            button {
+                margin: 0 20px;
+            }
+        }
+    }
+
+    .total-price {
+        margin-bottom: 20px;
+    }
+}

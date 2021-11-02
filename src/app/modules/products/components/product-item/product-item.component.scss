@@ -1,0 +1,16 @@
+.count-products {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+
+	span {
+		margin: 0 15px;
+	}
+
+	mat-card-subtitle {
+		margin: 0;
+		padding-left: 10px;
+	}
+}
