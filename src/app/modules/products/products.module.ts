@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeShellComponent } from './containers/home-shell/home-shell.component';
 import { MaterialModule } from 'src/app/shared/modules/material/material.module';
@@ -11,7 +12,7 @@ import { ListImgComponent } from 'src/app/shared/components/list-img/list-img.co
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { CheckItemOrderComponent } from './components/check-item-order/check-item-order.component';
 import { CardActionsComponent } from 'src/app/shared/components/card-actions/card-actions.component';
-
+import { AddressOrderComponent } from './components/address-order/address-order.component';
 
 @NgModule({
     declarations: [
@@ -23,9 +24,10 @@ import { CardActionsComponent } from 'src/app/shared/components/card-actions/car
         CommentListComponent,
         ProductItemComponent,
         CheckItemOrderComponent,
-        CardActionsComponent
+        CardActionsComponent,
+        AddressOrderComponent,
     ],
-    imports: [CommonModule, MaterialModule],
+    imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
     providers: [],
 })
 export class ProductsModule {}

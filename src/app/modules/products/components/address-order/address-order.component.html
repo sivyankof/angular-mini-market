@@ -1,0 +1,45 @@
+<div [formGroup]="myForm" class="form-address">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Your city</mat-label>
+            <input type="text" matInput placeholder="Your city" formControlName="city" />
+            <mat-error> City is required </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Your street</mat-label>
+            <input type="text" matInput placeholder="Your street" formControlName="street" />
+            <mat-error> Street is required </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Your house</mat-label>
+            <input type="text" matInput placeholder="Your house" formControlName="house" />
+            <mat-error> House is required </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Your telephone</mat-label>
+            <input type="tel" matInput placeholder="Your telephone" formControlName="telephone" />
+            <mat-error> Telephone is required </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Your data delivery</mat-label>
+            <input type="date" matInput placeholder="Your telephone" formControlName="dateDelivery" />
+            <mat-error> Data is required </mat-error>
+        </mat-form-field>
+
+        <div>
+            <mat-radio-group formControlName="cardOrCash">
+                <mat-label>Card or cash:</mat-label>
+                <br />
+                <mat-radio-button value="Card">Card</mat-radio-button>
+                <mat-radio-button value="Cash">Cash</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+</div>
+<br />

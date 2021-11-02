@@ -4,23 +4,24 @@
         <div *ngIf="!myCart.length; else show" class="empty-cart">
             <mat-icon>remove_shopping_cart</mat-icon> <span>Cart empty</span>
         </div>
+
         <ng-template #show>
             <app-check-item-order [myCart]="myCart"></app-check-item-order>
-            <mat-card>
+            <mat-card class="total-price">
                 <mat-card-title>Total Price: {{ totalPrice | currency }}</mat-card-title>
             </mat-card>
             <button mat-raised-button color="primary" matStepperNext>Next</button>
         </ng-template>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="validForm">
         <ng-template matStepLabel>Delivery address</ng-template>
+
+        <app-address-order></app-address-order>
+
+        <button mat-raised-button color="primary" matStepperNext (click)="checkForm()">Next</button>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-        <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
+        <h2>Well done</h2>
     </mat-step>
 </mat-stepper>

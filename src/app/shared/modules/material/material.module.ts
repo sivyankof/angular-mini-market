@@ -9,6 +9,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
     declarations: [],
@@ -22,6 +25,9 @@ import { MatStepperModule } from '@angular/material/stepper';
         MatBadgeModule,
         MatTableModule,
         MatStepperModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatRadioModule,
     ],
 })
 export class MaterialModule {}

@@ -36,7 +36,7 @@ export class CartService {
     }
 
     getUpdate(item: Cart, value: string) {
-        CART_LIST.find((el, i) => {
+        CART_LIST.find((el) => {
             if (el.product.id === item.product.id) {
                 if (el.count + Number(value) < 1) return;
                 el.count += Number(value);
